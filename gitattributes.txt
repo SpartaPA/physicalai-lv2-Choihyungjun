@@ -1,0 +1,6 @@
+*.pdf binary
+*.pptx binary
+*.xlsx binary
+*.bin binary
+*.md text eol=lf
+*.ino text eol=lf
