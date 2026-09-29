@@ -12,7 +12,7 @@
 
 ```text
 physicalai-lv2-이름
-├── README.md              # (이 파일) 이름·모듈별 링크
+├── README.md              
 └── lv2_module1/
     ├── README.md          # 장비·환경·실행 방법·결과 파일 위치
     ├── report.md          # 문제 1~4 설정·증거·해석
