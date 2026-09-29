@@ -5,7 +5,7 @@
 
 ### 1. 환경과 필수 도구
 
-![result](./results/환경확인.png)
+![result](./results/env.png)
 
 - 라즈베리 호스트 명 : pa777
 - 우분투 버전 : 22.04.5 LTS
@@ -14,7 +14,7 @@
 
 ### 2. 펌웨어 업로드 
 
-![upload](./results/build&upload.png)
+![upload](./results/build_upload.png)
 
 - Board : OpenCR R1.0
 - 빌드 사용량 : 프로그램 104,296 bytes (13%), 전역 40,620 bytes
@@ -31,7 +31,7 @@
 | 목표각 | 90° (시작 0°, 2초 후 목표 적용) |
 | 속도 상한 | max |
 
-![log](./results/실행A.png)
+![log](./results/logA.png)
 
 | 이름 | 로그 필드 | 의미 | 단위 |
 |---|---|---|---|
@@ -105,10 +105,10 @@ P 제어 수식 $u = K_p \times e$에서 $K_p > 0$이고 $e = -5^\circ < 0$이�
 
 
 실행 A 출력
-![A](./results/실행A.png) 
+![A](./results/logA.png) 
 
 실행 B 출력
-![B](./results/실행B.png) 
+![B](./results/logB.png) 
 
 ### 같은 경과 시간에서의 현재각, 목표 초과 비교
 | t_s | A 현재각(°) Kp=10 | B 현재각(°) Kp=5 | 비고 |

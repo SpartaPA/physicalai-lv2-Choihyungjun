@@ -53,9 +53,12 @@
     ```
 
 ## 결과 파일 위치
+
 | 파일 | 내용 |
 |---|---|
-| [results/환경확인.png](results/환경확인.png) | 호스트명·Ubuntu 버전·아키텍처·포트·dialout 권한 |
-| [results/build&upload.png](results/build%26upload.png) | 펌웨어 빌드 및 업로드(CRC OK / [OK] Download) |
-| [results/실행.png](results/실행.png) | 목표 입력 후 측정 로그 (실행 A) |
+| [results/env.png](results/env.png) | 호스트명·Ubuntu 버전·아키텍처·포트·dialout 권한 |
+| [results/build_upload.png](results/build_upload.png) | 펌웨어 빌드 및 업로드(CRC OK / [OK] Download) |
+| [results/logA.png](results/logA.png) | 실행 A (Kp=10) 측정 로그 |
+| [results/logB.png](results/logB.png) | 실행 B (Kp=5) 측정 로그 |
+| [results/flowchart.png](results/flowchart.png) | 문제 4 통신 구조도 |
 | [report.md](report.md) | 문제별 설정·증거·해석 |
