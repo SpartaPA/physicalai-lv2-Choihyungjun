@@ -7,7 +7,7 @@
 | 모듈 | 내용 | 링크 |
 |---|---|---|
 | 모듈 1 | 임베디드 제어 기초 (OpenCR · 다이나믹셀) | [lv2_module1/](lv2_module1/) |
-| 모듈 3 | 설정값에 따른 Mask·검출 결과 변화 분석 (HSV · ROS 2 이미지 토픽) | [lv2_module3/](lv2_module3/) |
+| 모듈 3 | 설정값에 따른 Mask·검출 결과 변화 분석 | [lv2_module3/](lv2_module3/) |
 
 ## 폴더 구조
 
