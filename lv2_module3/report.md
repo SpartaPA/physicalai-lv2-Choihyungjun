@@ -25,7 +25,55 @@
 | 검출 상태 | `/perception_status` | `std_msgs/msg/String` | `tracker_node` | `ros2 topic echo` |
 | 검출 결과(Overlay) | `/tracking/image` | `sensor_msgs/msg/Image` | `rviz_node` | RViz2 Image 디스플레이 (`Tracking Image`) |
 
-### 흐름도
+### 2.1 Raw Image
+
+![exp1_A raw](results/exp1_A/exp1_A_raw.png)
+
+- 해상도 **640 × 360**, `encoding` **`rgb8`**, `frame_id` `camera_color_optical_frame` (`results/exp1_A/echo_raw.txt`)
+- `tracker_node`는 `imgmsg_to_cv2(..., desired_encoding='bgr8')`로 받아 cv_bridge가 R·B 순서를 바꿈. 뷰어에서 큐브가 파랗게 보이므로 라벨과 실제 채널 순서도 일치
+
+### 2.2 Mask
+
+![exp1_A mask](results/exp1_A/exp1_A_mask.png)
+
+- **값의 의미(코드 기준):** `mono8`, 255(흰색) = 아래 조건을 모두 통과한 전경, 0(검정) = 배경. `detector.py` `color_mask()`에서 생성
+  1. Gaussian blur 5×5 (`processing.blur_ksize: 5`)
+  2. BGR→HSV, `cv2.inRange(hsv, [104, 200, 8], [120, 255, 255])` (`target.hsv_ranges`)
+  3. 색 세기 `max(B,G,R) − min(B,G,R) ≥ 5` (`target.min_chroma`) — 어두운 픽셀의 S 잡음 제거
+  4. 열림 1회 → 닫힘 2회, 5×5 타원 커널
+- **이 Mask는 후보 필터(면적·모양·뎁스) 전 단계의 출력.** 따라서 HSV 값을 바꾸면 Mask가 바뀌고,
+  면적 임계값을 바꾸면 Mask는 그대로이고 검출 결과만 바뀌어야 함
+- 원본과 비교 (해상도 640 × 360, `mono8`, `results/exp1_A/echo_mask.txt`):
+  - 목표에서 남은 영역: 큐브 한 덩어리만 흰색으로 남음. 위치는 Raw Image의 큐브 위치와 같음
+  - 목표 외에 남은 영역: 없음. 청바지, 셔츠 줄무늬, 뒤쪽 책상의 작은 파란 물체는 모두 검정
+    이 물체들의 S가 하한 200보다 낮아 `inRange`에서 빠진 것으로 보임
+  - 누락된 부분: 큐브를 쥔 손가락이 가린 쪽 가장자리가 살짝 파임. 그 밖에 큐브 면에서 크게 빠진 부분은 없음
+- HSV 범위 읽는 위치: `tracker_node`가 시작할 때 `detector.load_config(detector_config)`로 한 번 읽음
+  → **실행 중에는 바뀌지 않으므로, 값을 바꾸면 노드를 재시작**하고 시작 로그 `Detector config ...: HSV [...]`로 적용값 확인
+
+### 2.3 검출 결과
+
+![exp1_A tracking](results/exp1_A/exp1_A_tracking.png)
+
+| 토픽·필드 | 의미 | 단위 | 미검출일 때 |
+| --- | --- | --- | --- |
+| `/tracking/bbox` `polygon.points[0]` | 박스 왼쪽 위 (x, y) | 입력 영상 픽셀 | `points: []` |
+| `/tracking/bbox` `polygon.points[1]` | 박스 오른쪽 아래 (x, y), 포함 좌표 | 입력 영상 픽셀 | — |
+| `/target` `point.x` | 목표 중심의 가로 오차 (cx − W/2)/(W/2) | 무단위, −1~1 | 0.0 |
+| `/target` `point.y` | 목표 중심의 세로 오차 (cy − H/2)/(H/2) | 무단위, −1~1 | 0.0 |
+| `/target` `point.z` | 컨투어 면적 / (W×H) — **거리가 아님** | 무단위, 0~1 | 0.0 |
+| `/perception_status` `data` | `OK` / `NO_TARGET` / `CAMERA_STALL` | 문자열 | `NO_TARGET` |
+
+- 근거: `detector.py`의 `normalized_error()`, `area_ratio`, `tracker_node.py`의 `process_frame()`
+  상태는 `point.z > 0`이면 `OK`, 아니면 `NO_TARGET`. 입력이 `stall_timeout` 0.5 s 이상 끊기면 `CAMERA_STALL`
+- 메시지에 검출 수, 후보 개수, 깊이(m)는 없음
+- 실제 수신 예(실험 1-A 설정):
+  - `/tracking/bbox` stamp `1791422051.500585067`: (333, 165)–(345, 186) → 박스 13 × 22 px, 중심 (339, 175.5)
+  - `/target` 같은 stamp: x 0.059, y −0.030, z 0.000786
+- Overlay(`/tracking/image`)는 `rviz_node`가 Raw Image와 같은 stamp의 `/tracking/bbox`를 짝지어 초록 박스와 `Blue target` 글자를 그린 것.
+  `exp1_A_tracking.png`에서 초록 박스가 큐브 위에 그려져, 표시된 박스와 목표 위치가 일치
+
+### 2.4 흐름도
 
 ```mermaid
 flowchart LR
