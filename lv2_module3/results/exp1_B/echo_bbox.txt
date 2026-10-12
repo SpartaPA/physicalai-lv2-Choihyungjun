@@ -1,0 +1,42 @@
+header:
+  stamp:
+    sec: 1791422051
+    nanosec: 500585067
+  frame_id: camera_color_optical_frame
+polygon:
+  points:
+  - x: 332.0
+    y: 163.0
+    z: 0.0
+  - x: 347.0
+    y: 191.0
+    z: 0.0
+---
+header:
+  stamp:
+    sec: 1791422051
+    nanosec: 587908962
+  frame_id: camera_color_optical_frame
+polygon:
+  points:
+  - x: 331.0
+    y: 163.0
+    z: 0.0
+  - x: 346.0
+    y: 191.0
+    z: 0.0
+---
+header:
+  stamp:
+    sec: 1791422051
+    nanosec: 668944052
+  frame_id: camera_color_optical_frame
+polygon:
+  points:
+  - x: 329.0
+    y: 163.0
+    z: 0.0
+  - x: 344.0
+    y: 191.0
+    z: 0.0
+---

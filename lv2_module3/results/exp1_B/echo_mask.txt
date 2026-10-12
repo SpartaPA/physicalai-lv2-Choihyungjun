@@ -1,0 +1,36 @@
+header:
+  stamp:
+    sec: 1791422051
+    nanosec: 500585067
+  frame_id: camera_color_optical_frame
+height: 360
+width: 640
+encoding: mono8
+is_bigendian: 0
+step: 640
+data: '<sequence type: uint8, length: 230400>'
+---
+header:
+  stamp:
+    sec: 1791422051
+    nanosec: 587908962
+  frame_id: camera_color_optical_frame
+height: 360
+width: 640
+encoding: mono8
+is_bigendian: 0
+step: 640
+data: '<sequence type: uint8, length: 230400>'
+---
+header:
+  stamp:
+    sec: 1791422051
+    nanosec: 668944052
+  frame_id: camera_color_optical_frame
+height: 360
+width: 640
+encoding: mono8
+is_bigendian: 0
+step: 640
+data: '<sequence type: uint8, length: 230400>'
+---

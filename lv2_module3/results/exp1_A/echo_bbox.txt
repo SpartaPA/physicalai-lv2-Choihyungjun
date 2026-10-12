@@ -1,0 +1,70 @@
+header:
+  stamp:
+    sec: 1791422051
+    nanosec: 500585067
+  frame_id: camera_color_optical_frame
+polygon:
+  points:
+  - x: 333.0
+    y: 165.0
+    z: 0.0
+  - x: 345.0
+    y: 186.0
+    z: 0.0
+---
+header:
+  stamp:
+    sec: 1791422051
+    nanosec: 540335599
+  frame_id: camera_color_optical_frame
+polygon:
+  points:
+  - x: 333.0
+    y: 165.0
+    z: 0.0
+  - x: 345.0
+    y: 186.0
+    z: 0.0
+---
+header:
+  stamp:
+    sec: 1791422051
+    nanosec: 587908962
+  frame_id: camera_color_optical_frame
+polygon:
+  points:
+  - x: 333.0
+    y: 165.0
+    z: 0.0
+  - x: 344.0
+    y: 185.0
+    z: 0.0
+---
+header:
+  stamp:
+    sec: 1791422051
+    nanosec: 626656261
+  frame_id: camera_color_optical_frame
+polygon:
+  points:
+  - x: 331.0
+    y: 165.0
+    z: 0.0
+  - x: 343.0
+    y: 185.0
+    z: 0.0
+---
+header:
+  stamp:
+    sec: 1791422051
+    nanosec: 719776667
+  frame_id: camera_color_optical_frame
+polygon:
+  points:
+  - x: 330.0
+    y: 165.0
+    z: 0.0
+  - x: 341.0
+    y: 184.0
+    z: 0.0
+---

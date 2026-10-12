@@ -1,0 +1,11 @@
+[INFO] [1791782314.676962840] [tracker_node]: Detector config /home/pa33/git/physicalai-lv2-Choihyungjun/lv2_module3/config/exp1_A_s200.yaml: HSV [{'lower': [104, 200, 8], 'upper': [120, 255, 255]}], min_area 57 px, depth 0.1-1.1 m, CSRT on
+[INFO] [1791782314.677668997] [tracker_node]: Waiting for synchronized RGB and aligned depth images.
+[INFO] [1791782314.831911474] [tracker_node]: Camera focal length fx=454.5 fy=454.5 px; min_area 55 px, max_area_ratio 0.6
+[WARN] [1791782382.678325865] [tracker_node]: Dropped 1 synced pairs as outside max_input_age 0.5 s (latest age -0.118 s, use_sim_time=True, now=1791422647.537 s); check that only the bag publishes /clock (ros2 bag play --clock).
+[WARN] [1791782518.948952527] [tracker_node]: Image stamp jumped back 2.976 s (bag restart or loop); resetting tracking state.
+[WARN] [1791782522.251934375] [tracker_node]: Image stamp jumped back 2.976 s (bag restart or loop); resetting tracking state.
+[WARN] [1791782525.335779003] [tracker_node]: Image stamp jumped back 2.976 s (bag restart or loop); resetting tracking state.
+[WARN] [1791782528.418776791] [tracker_node]: Image stamp jumped back 2.976 s (bag restart or loop); resetting tracking state.
+[WARN] [1791782531.522073020] [tracker_node]: Image stamp jumped back 2.976 s (bag restart or loop); resetting tracking state.
+[WARN] [1791782534.602413328] [tracker_node]: Image stamp jumped back 2.976 s (bag restart or loop); resetting tracking state.
+[WARN] [1791782537.704869992] [tracker_node]: Image stamp jumped back 2.976 s (bag restart or loop); resetting tracking state.

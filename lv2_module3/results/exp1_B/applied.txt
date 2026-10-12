@@ -1,0 +1,1 @@
+[INFO] [1791776289.896227458] [tracker_node]: Detector config /home/pa33/git/physicalai-lv2-Choihyungjun/lv2_module3/config/exp1_B_s100.yaml: HSV [{'lower': [104, 100, 8], 'upper': [120, 255, 255]}], min_area 57 px, depth 0.1-1.1 m, CSRT on
