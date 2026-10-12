@@ -16,10 +16,11 @@
 
 | 구분 | 내용 |
 |---|---|
-| OS | Ubuntu 24.04.5 LTS |
+| OS | Ubuntu 24.04.5 LTS (kernel 7.0.0-34-generic) |
 | ROS 2 | Lyrical |
 | Python | 3.12.3 |
 | OpenCV | 4.6.0 |
+| NumPy | 1.26.4 |
 
 ## 입력
 
